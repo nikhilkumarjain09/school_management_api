@@ -1,4 +1,6 @@
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require('swagger-jsdoc');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const schoolRoutes = require('./routes/schoolRoutes');
@@ -17,6 +19,23 @@ const app = express();
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
+const swaggerOptions = {
+  swaggerDefinition: {
+    info: {
+      title: 'School Management API',
+      version: '1.0.0',
+      description: 'API for managing Schools, Classrooms, Students, etc.',
+    },
+    basePath: '/',
+  },
+  apis: ['./routes/*.js'], // This is where you define your API routes in your codebase
+};
+
+// Initialize swagger-jsdoc
+const swaggerDocs = swaggerJsdoc(swaggerOptions);
+
+// Serve Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 // Routes for managing schools, classrooms, and students
 app.use("/api/auth", authRoutes);

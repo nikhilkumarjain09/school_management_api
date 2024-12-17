@@ -2,7 +2,42 @@ const express = require('express');
 const User = require('../models/User');
 const { generateToken } = require('../config/jwt');
 const router = express.Router();
-
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Generate Auth Token
+ *     description: Generate Auth Token.
+ *     parameters:
+ *       - in: username
+ *         name: username
+ *         required: true
+ *         description: Username
+ *         schema:
+ *           type: string
+ *       - in: password
+ *         name: password
+ *         required: true
+ *         description: Password
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               username:
+ *                 type: string
+ *                 description: Name of the school
+ *               password:
+ *                 type: string
+ *                 description: Address of the school
+ *     responses:
+ *       201:
+ *         description: Successfully created the school.
+ */
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });

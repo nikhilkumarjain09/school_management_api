@@ -1,7 +1,8 @@
+const { required } = require('joi');
 const mongoose = require('mongoose');
 
 const classroomSchema = new mongoose.Schema({
-  schoolId: { type: mongoose.Schema.Types.ObjectId, ref: 'School' },
+  schoolId: { type: mongoose.Schema.Types.ObjectId,required:true, ref: 'School' },
   name: { type: String, required: true },
   capacity: Number,
   resources: [String],
