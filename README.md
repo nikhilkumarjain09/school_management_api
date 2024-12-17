@@ -80,13 +80,63 @@ Navigate to the project directory:
 ├── README.md 
 .
 ```
-2. Open Terminal in project root directory and run comman:
+2. Install Dependencies:
 ```sh
   npm install
   
 ```
-3. Run app.js by running command:
+3. Set Environment Variables
+Create a .env file and add your configurations:
+```sh
+  PORT=3000
+  MONGODB_URI=your_mongo_uri
+  JWT_SECRET=your_jwt_secret 
+```
+4. Run MongoDB
+   Make sure MongoDB is running locally or provide your Atlas connection string.
+5. Run app.js by running command:
 ```sh
   nodemon app
   
 ```
+### Usage
+Once the server is running, interact with the API using tools like Postman or integrate it into your application.
+
+### API Endpoint
+  **Authentication**
+  - `POST /api/auth/login`
+
+  **Schools**
+  - `POST /api/schools`
+  - Create a school.
+    
+  - `GET /api/schools/`
+  - Get all school.
+    
+  - `GET /api/schools/{schoolId}`
+  - Get School detail by id.
+    
+  - `PUT /api/schools/{schoolId}`
+  - Update School by id.
+    
+  - `DELETE /api/schools/{schoolId}`
+  - Delete School by id.
+
+  **Classrooms**
+  - `POST /api/classrooms`
+  - Create a Classroom.
+    
+  - `GET /api/classrooms/`
+  - Get all Classrooms.
+    
+  - `GET /api/classrooms/{schoolId}`
+  - Get Classrooms detail of school by school id.
+    
+  - `PUT /api/classrooms/{schoolId}`
+  - Update classrooms by school id.
+    
+  - `DELETE /api/classrooms/{schoolId}`
+  - Delete classrooms by school id.
+    
+    
+
