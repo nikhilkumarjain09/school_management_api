@@ -13,6 +13,7 @@ This is a RESTful API for a School Management System that allows managing School
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
+- [Contact](#contact)
 
 ## Features
 
@@ -45,7 +46,6 @@ Before you begin, ensure you have met the following requirements:
 1. Clone this repository:
 ```sh
   git clone https://github.com/iamtonmoy0/node-express-school-management-system.git
-
 ```
 
 SCHOOL-MANAGEMENT-SERVER
@@ -82,8 +82,7 @@ Navigate to the project directory:
 ```
 2. Install Dependencies:
 ```sh
-  npm install
-  
+  npm install 
 ```
 3. Set Environment Variables
 Create a .env file and add your configurations:
@@ -97,7 +96,6 @@ Create a .env file and add your configurations:
 5. Run app.js by running command:
 ```sh
   nodemon app
-  
 ```
 ### Usage
 Once the server is running, interact with the API using tools like Postman or integrate it into your application.
@@ -150,5 +148,16 @@ Once the server is running, interact with the API using tools like Postman or in
     
   - `DELETE /api/students/{schoolId/{studentId}}`
   - Delete student by school id and student id.    
-    
+### Contributing
+Contributions are welcome!
+  - Fork the repository.
+  - Create a new branch: git checkout -b feature-name.
+  - Commit your changes: git commit -m "Add feature".
+  - Push to your branch: git push origin feature-name.
+  - Open a pull request.
+### License
+This project is licensed under the MIT License.
+### Contact
+Email: nikhil.wevois@gmail.com
+GitHub: nikhilkumarjain09
 
