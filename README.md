@@ -78,15 +78,15 @@ Navigate to the project directory:
 ├── package.json
 ├── package-lock.json
 ├── README.md 
-
+.
 ```
 2. Open Terminal in project root directory and run comman:
-   ```sh
+```sh
   npm install
   
 ```
 3. Run app.js by running command:
-   ```sh
+```sh
   nodemon app
   
 ```
