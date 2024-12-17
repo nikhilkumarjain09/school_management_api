@@ -80,4 +80,13 @@ Navigate to the project directory:
 ├── README.md 
 
 ```
-
+2. Open Terminal in project root directory and run comman:
+   ```sh
+  npm install
+  
+```
+3. Run app.js by running command:
+   ```sh
+  nodemon app
+  
+```
