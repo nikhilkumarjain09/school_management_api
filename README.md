@@ -1,156 +1,83 @@
-School Management API
-This is a RESTful API for a School Management System that allows managing Superadmins, Schools, Classrooms, Students, and School Admins. The API supports user authentication, CRUD operations, and role-based access control.
+# SCHOOL MANAGEMENT SYSTEM API
 
-Table of Contents
-Features
-Technologies Used
-API Documentation
-Database Schema
-Installation
-Running the API
-Testing
-Deployment
-Contributing
-License
-Features
-Superadmin:
-Add, update, delete, and view schools.
-School Admin:
-Manage classrooms and students under their school.
-Authentication:
-JWT-based secure login for Superadmin and School Admin.
-CRUD Operations:
-Create, read, update, and delete schools, classrooms, and students.
-Role-Based Access Control:
-Permissions based on user roles.
-Technologies Used
-Backend: Node.js with Express.js
-Database: MongoDB
-ORM/ODM: Mongoose
-Authentication: JWT (JSON Web Token)
-Documentation: Swagger / Postman
-Deployment: Heroku / AWS
-API Documentation
-The API documentation is available with all endpoint details, request/response formats, and error codes.
+This is a RESTful API for a School Management System that allows managing Schools, Classrooms, and Students. The API supports user authentication, CRUD operations, and role-based access control.
 
-Use Swagger UI to explore the endpoints:
-http://localhost:3000/api-docs
-Core Endpoints
-Method	Endpoint	Description	Authentication
-POST	/api/auth/login	User Login	Public
-GET	/api/superadmin/schools	List all schools	Superadmin
-POST	/api/superadmin/schools	Create a new school	Superadmin
-GET	/api/schools/{id}	Get school details	School Admin
-POST	/api/schools/{schoolId}/classrooms	Add a classroom to a school	School Admin
-GET	/api/classrooms/{id}/students	List students in a classroom	School Admin
-POST	/api/classrooms/{id}/students	Add a student to a classroom	School Admin
-Database Schema
-The School Management System uses MongoDB to store data. Below is the schema structure:
+## Table of Contents
 
-Collections
-Users
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
 
-Fields: _id, name, email, password, role (Superadmin/School Admin).
-Schools
+## Features
 
-Fields: _id, name, address, adminId (References Users).
-Classrooms
+- Create, update, and delete student records.
+- Manage classrooms and students.
+- User authentication and authorization.
+- API endpoints for interacting with the frontend      
+  application.
+- Scalable and maintainable codebase.
 
-Fields: _id, name, schoolId (References Schools).
-Students
+## Technologies Used
 
-Fields: _id, name, age, classroomId (References Classrooms).
-Schema Diagram
-plaintext
-Copy code
-Users (_id, name, email, password, role)
-    |
-Schools (_id, name, address, adminId -> Users._id)
-    |
-Classrooms (_id, name, schoolId -> Schools._id)
-    |
-Students (_id, name, age, classroomId -> Classrooms._id)
-Installation
-Follow these steps to set up the project locally.
+- Node.js
+- Express.js
+- MongoDB 
+- Mongoose ODM
+- JSON Web Tokens (JWT) for authentication
+- Bcrypt for password hashing
 
-Prerequisites
-Node.js (v14+)
-MongoDB (Local or Atlas Cloud)
-Git
-Steps
-Clone the Repository
+## Getting Started
+### Prerequisites
 
-bash
-Copy code
-git clone https://github.com/your-username/school-management-api.git
-cd school-management-api
-Install Dependencies
+Before you begin, ensure you have met the following requirements:
 
-bash
-Copy code
-npm install
-Set Environment Variables
-Create a .env file and add your configurations:
+- Node.js 14 + and npm installed on your development machine.
+- MongoDB installed and running.
 
-plaintext
-Copy code
-PORT=3000
-MONGODB_URI=mongodb://localhost:27017/school_management
-JWT_SECRET=your_jwt_secret
-Run MongoDB
+### Installation
 
-Make sure MongoDB is running locally or provide your Atlas connection string.
-Running the API
-To run the API in development mode:
+1. Clone this repository:
+```sh
+  git clone https://github.com/iamtonmoy0/node-express-school-management-system.git
 
-bash
-Copy code
-npm start
-API will be available at http://localhost:3000.
+```
 
-Testing
-Run tests using the following command:
+SCHOOL-MANAGEMENT-SERVER
+Navigate to the project directory:
+```sh
+.
+├── config/
+│   ├── jwt.js
+├── controllers/
+│   ├── classroomController.js
+│   ├── schoolController.js
+│   ├── studentController.js
+├── middlewares/
+│   │   ├──authMiddleware.js
+│   │   ├──roleMiddleware.js
+├── models/
+│   ├── Classroom.js
+│   ├── School.js
+│   ├── Student.js
+│   ├── User.js
+├── routes/
+│   ├── auth.js
+│   ├── classroomRoutes.js
+│   ├── schoolRoutes.js
+│   ├── studentRoutes.js
+├── .env
+├── app.js //root file
+├── config.js //mongoconnect
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md 
 
-bash
-Copy code
-npm test
-Test Cases Include:
-Authentication and Authorization
-CRUD Operations for Schools, Classrooms, and Students
-Role-based Access Control
-Deployment
-Follow these steps to deploy the API to Heroku:
-
-Install Heroku CLI
-Log in to Heroku:
-bash
-Copy code
-heroku login
-Create a Heroku app:
-bash
-Copy code
-heroku create your-app-name
-Add MongoDB Atlas URI as an environment variable:
-bash
-Copy code
-heroku config:set MONGODB_URI=your-mongodb-uri
-Deploy the app:
-bash
-Copy code
-git push heroku main
-Contributing
-Contributions are welcome!
-
-Fork the repository.
-Create a new branch: git checkout -b feature-name.
-Commit your changes: git commit -m "Add feature".
-Push to your branch: git push origin feature-name.
-Open a pull request.
-License
-This project is licensed under the MIT License.
-
-Contact
-If you have any questions, feel free to reach out:
-Email: yourname@example.com
-GitHub: your-github-profile
+```
 
