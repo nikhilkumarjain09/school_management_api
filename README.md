@@ -138,5 +138,17 @@ Once the server is running, interact with the API using tools like Postman or in
   - `DELETE /api/classrooms/{schoolId}`
   - Delete classrooms by school id.
     
+  **Students**
+  - `POST /api/students/{schoolId}`
+  - Create a students in school.
+    
+  - `GET /api/students/{schoolId}`
+  - Get all students in a school.
+    
+  - `PUT /api/students/{schoolId}/{studentId}`
+  - Update classrooms by school id and student id.
+    
+  - `DELETE /api/students/{schoolId/{studentId}}`
+  - Delete student by school id and student id.    
     
 
