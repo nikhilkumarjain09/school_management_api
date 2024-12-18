@@ -11,6 +11,7 @@ This is a RESTful API for a School Management System that allows managing School
   - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+- [API Documentation](#api-documentation)
 - [Other(Necessary)](#other)
 - [Contributing](#contributing)
 - [License](#license)
@@ -150,6 +151,10 @@ Once the server is running, interact with the API using tools like Postman or in
     
   - `DELETE /api/students/{studentId}`
   - Delete student by school id.
+### API Documentation
+ - The API documentation is available with all endpoint details, request/response formats, and error codes.
+ - Use Swagger UI to explore the endpoints:
+    - http://localhost:3000/api-docs
 ### Other(Necessary)
   - Databse Schema is available in database-schema.md.
   - Test Cases and results under test-cases-and-results.md.
