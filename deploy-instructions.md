@@ -1,59 +1,105 @@
-## Deployment Instructions to Heroku
+# Deploying a Node.js Application to AWS Elastic Beanstalk
 
-### Prerequisites
-1. Install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
-2. Ensure that **Git** is installed and your project repository is initialized.
-3. Set up MongoDB connection URI for deployment.
+This guide provides step-by-step instructions to deploy a Node.js application to AWS Elastic Beanstalk.
 
 ---
 
-### Steps to Deploy
+## Prerequisites
 
-1. **Login to Heroku CLI**
+1. **AWS CLI Installed**:  
+   Install the AWS CLI and configure it:  
    ```bash
-   heroku login
+   aws configure
    ```
-   Follow the instructions in the browser to authenticate.
 
-2. **Create a Heroku Application**
+2. **Elastic Beanstalk CLI Installed**:  
+   Install the Elastic Beanstalk CLI (`eb-cli`):  
+   [Installation Guide](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html).
+
+3. **Node.js Installed**:  
+   Install Node.js from [Node.js Official Website](https://nodejs.org/).
+
+4. **Git Installed**:  
+   Install Git from [Git Downloads](https://git-scm.com/downloads).
+
+---
+
+## Deployment Instructions
+
+1. **Prepare Your Application**:  
+
+   Ensure the project has:  
+   - A `package.json` file with the `start` script:  
+     ```json
+     "scripts": {
+         "start": "node index.js"
+     }
+     ```  
+   - A `Procfile` with the following content:  
+     ```plaintext
+     web: node index.js
+     ```
+
+2. **Initialize Elastic Beanstalk**:  
+
+   Run the following to initialize your EB environment:  
    ```bash
-   heroku create <app-name>
-   ```
-   Replace `<app-name>` with your desired app name.
+   eb init
+   ```  
+   - Choose your AWS region.  
+   - Select the **Node.js** platform.  
+   - Provide an application name.
 
-3. **Add MongoDB Environment Variable**
+3. **Create a New Environment**:  
+
+   Create the environment for deployment:  
    ```bash
-   heroku config:set MONGODB_URI='<your-mongodb-uri>'
-   ```
+   eb create
+   ```  
+   - Provide a name for the environment (e.g., `nodejs-env`).
 
-4. **Deploy the Application**
-   Push your code to the Heroku Git remote:
+4. **Deploy Your Application**:  
+
+   Deploy your application using the following command:  
    ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push heroku main
+   eb deploy
    ```
 
-5. **Verify Deployment**
-   Check your deployed app URL:
+5. **Access Your Application**:  
+
+   Open the deployed application in your browser:  
    ```bash
-   heroku open
-   ```
-   Your API should now be live.
-
-6. **Access Swagger API Documentation**
-   Visit:
-   ```
-   https://<app-name>.herokuapp.com/api-docs
+   eb open
    ```
 
 ---
 
-### Notes
-- Replace placeholder variables like `<app-name>` and `<your-mongodb-uri>` with actual values.
-- Ensure `MONGODB_URI` points to your MongoDB instance.
-- Swagger UI will be available at `/api-docs` to explore your API endpoints.
-- Logs can be viewed using:
-   ```bash
-   heroku logs --tail
-   ```
+## Managing the Application
+
+- **Set Environment Variables**:  
+  ```bash
+  eb setenv MONGO_URI=YOURMONGOURI
+  ```
+
+- **Retrieve Logs**:  
+  ```bash
+  eb logs
+  ```
+
+- **Redeploy After Changes**:  
+  ```bash
+  eb deploy
+  ```
+
+---
+
+## Cleanup
+
+To terminate the environment and delete associated resources:  
+```bash
+eb terminate
+```
+
+---
+
+For more details, refer to the [AWS Elastic Beanstalk Documentation](https://docs.aws.amazon.com/elasticbeanstalk/).
