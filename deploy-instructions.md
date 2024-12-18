@@ -32,12 +32,12 @@ This guide provides step-by-step instructions to deploy a Node.js application to
    - A `package.json` file with the `start` script:  
      ```json
      "scripts": {
-         "start": "node index.js"
+         "start": "node app.js"
      }
      ```  
    - A `Procfile` with the following content:  
      ```plaintext
-     web: node index.js
+     web: node app.js
      ```
 
 2. **Initialize Elastic Beanstalk**:  
