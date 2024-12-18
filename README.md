@@ -11,9 +11,12 @@ This is a RESTful API for a School Management System that allows managing School
   - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
+- [API Documentation](#api-documentation)
+- [Other(Necessary)](#other)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+
 
 ## Features
 
@@ -87,7 +90,7 @@ Navigate to the project directory:
 3. Set Environment Variables
 Create a .env file and add your configurations:
 ```sh
-  PORT=3000
+  PORT=5000
   MONGODB_URI=your_mongo_uri
   JWT_SECRET=your_jwt_secret 
 ```
@@ -130,10 +133,10 @@ Once the server is running, interact with the API using tools like Postman or in
   - `GET /api/classrooms/{schoolId}`
   - Get Classrooms detail of school by school id.
     
-  - `PUT /api/classrooms/{schoolId}`
+  - `PUT /api/classrooms/{classroomId}`
   - Update classrooms by school id.
     
-  - `DELETE /api/classrooms/{schoolId}`
+  - `DELETE /api/classrooms/{classroomId}`
   - Delete classrooms by school id.
     
   **Students**
@@ -143,11 +146,19 @@ Once the server is running, interact with the API using tools like Postman or in
   - `GET /api/students/{schoolId}`
   - Get all students in a school.
     
-  - `PUT /api/students/{schoolId}/{studentId}`
-  - Update classrooms by school id and student id.
+  - `PUT /api/students/{studentId}`
+  - Update classrooms by school id.
     
-  - `DELETE /api/students/{schoolId/{studentId}}`
-  - Delete student by school id and student id.    
+  - `DELETE /api/students/{studentId}`
+  - Delete student by school id.
+### API Documentation
+ - The API documentation is available with all endpoint details, request/response formats, and error codes.
+ - Use Swagger UI to explore the endpoints:
+    - http://localhost:5000/api-docs
+### Other(Necessary)
+  - Databse Schema is available in database-schema.md.
+  - Test Cases and results under test-cases-and-results.md.
+  - Deployment Instructions are availble in deploy-instructions.md.
 ### Contributing
 Contributions are welcome!
   - Fork the repository.
